@@ -1,0 +1,62 @@
+<mvc:View controllerName="zmaterialsteward.controller.View"
+    xmlns:mvc="sap.ui.core.mvc" xmlns:u="sap.ui.unified"
+    xmlns="sap.m" 	xmlns:smartTable="sap.ui.comp.smarttable">
+    <Page id="page" title="Maintain an updated Material Stewardship List in PDV">
+    
+ <content>
+            <VBox id="vb1" class="sapUiSmallMargin">
+
+                <!-- Radio Buttons -->
+                <Label id="lb1" text="Select Upload Type" design="Bold" />
+                <RadioButtonGroup id="rbGroup" columns="2" selectedIndex="0" select="onRadioSelect">
+                    <buttons>
+                        <RadioButton id="R1" text="Update" />
+                        <RadioButton id="R2" text="Reupload" />
+                    </buttons>
+                </RadioButtonGroup>
+
+                <Toolbar id="tb1" class="sapUiSmallMarginTop">
+                    <Title id="Title" text="Upload Section" level="H4" />
+                    <ToolbarSpacer id="tool" />
+                    <Button id="b1" text="Download Sample Document" type="Emphasized" icon="sap-icon://download"
+                        press="onDownloadSample" />
+                </Toolbar>
+
+                <!-- Update File Uploader -->
+                <VBox id="updateBox" class="sapUiSmallMarginTop">
+                    <Label id="lb2" text="Update File" />
+                    <u:FileUploader id="fuUpdate" width="400px" placeholder="Choose Update file" fileType="csv,xlsx,XLSX"
+                        change="onFileChange" sameFilenameAllowed="true" />
+                </VBox>
+
+                <!-- Reupload File Uploader -->
+                <VBox id="reuploadBox" class="sapUiSmallMarginTop" visible="false">
+                    <Label id="lb3" text="Reupload File" />
+                    <u:FileUploader id="fuReupload" width="400px" placeholder="Choose Reupload file" fileType="csv,xlsx"
+                        change="onFileChange" sameFilenameAllowed="true" />
+                </VBox>
+
+                <HBox id="hb1" class="sapUiMediumMarginTop" justifyContent="Start">
+                    <Button id="b2" text="Upload"  type="Accept"
+                        icon="sap-icon://upload"
+                        press="onUpload" />
+                    <Button id="hb2"  text="Clear" class="sapUiTinyMarginBegin"
+                        press="onClear" />
+                </HBox>
+            </VBox>
+            		<smartTable:SmartTable id="LineItemsSmartTable" entitySet="Table_detailsSet" 
+                    tableType="Table" enableExport="true" beforeExport=".onBeforeExport" useVariantManagement="true" 
+                    useTablePersonalisation="true" header="Line Items" showRowCount="true" 
+                    persistencyKey="SmartTableAnalytical_Explored" enableAutoBinding="true" 
+                    class="sapUiResponsiveContentPadding" enableAutoColumnWidth="true" 
+                    initiallyVisibleFields="SpcNo,CommName,InciName,ENum,CasNum,Category,NpdrText,ExstPrd,ChngExstPrd"
+                    >
+				<!-- layout data used to make the table growing but the filter bar fixed -->
+				<smartTable:layoutData>
+					<FlexItemData id="flex" growFactor="1" baseSize="0%"/>
+				</smartTable:layoutData>
+			</smartTable:SmartTable>
+        </content>
+
+    </Page>
+</mvc:View>

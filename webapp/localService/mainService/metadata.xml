@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="BAY0.AB_MATERIAL_STEWARDSHIP_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="Table_details" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="SpcNo"/>
+                    <PropertyRef Name="Process"/>
+                </Key>
+                <Property Name="SpcNo" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Specification" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CommName" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Common Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="InciName" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="INCI Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ENum" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="E Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CasNum" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="CAS Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Category" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Category" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="NpdrText" Type="Edm.String" Nullable="false" MaxLength="255" sap:unicode="false" sap:label="NPD and Rollout" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ExstPrd" Type="Edm.String" Nullable="false" MaxLength="255" sap:unicode="false" sap:label="Existing Products" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ChngExstPrd" Type="Edm.String" Nullable="false" MaxLength="255" sap:unicode="false" sap:label="Changes to Existing" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Process" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Process" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityContainer Name="BAY0_AB_MATERIAL_STEWARDSHIP_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="Table_detailsCollection" EntityType="BAY0.AB_MATERIAL_STEWARDSHIP_SRV.Table_details" sap:content-version="1"/>
+            </EntityContainer>
+            <Annotation Term="Core.SchemaVersion" String="1.0.0" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+            <atom:link rel="self" href="https://pld.pp.virtual:443/sap/opu/odata/bay0/AB_MATERIAL_STEWARDSHIP_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://pld.pp.virtual:443/sap/opu/odata/bay0/AB_MATERIAL_STEWARDSHIP_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

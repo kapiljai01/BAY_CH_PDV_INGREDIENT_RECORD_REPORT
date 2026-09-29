@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+
+specVersion: "4.0"
+metadata:
+  name: zmaterialsteward
+type: application
+builder:
+  resources:
+    excludes:
+      - /test/**
+      - /localService/**
+  customTasks:
+    - name: deploy-to-abap
+      afterTask: generateCachebusterInfo
+      configuration:
+        target:
+          destination: CH_ERP_PLD
+          url: http://pld.pp.virtual:443
+          client: '300'
+        app:
+          name: /BAY0/AB_MATNR_STEW
+          description: Maintain an updated Material Stewardship List in PDV
+          package: /BAY0/AB
+          transport: PLDK909715
+        exclude:
+          - /test/
